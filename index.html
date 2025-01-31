@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Migration Cost Calculator</title>
+</head>
+<body>
+    <h1>Migration Cost Calculator</h1>
+    <label for="fileDataSize">File Data Size (TB):</label>
+    <input type="number" id="fileDataSize" step="0.1"><br><br>
+    <label for="mailboxCount">Number of Mailboxes:</label>
+    <input type="number" id="mailboxCount"><br><br>
+    <button onclick="calculateCost()">Calculate</button><br><br>
+    <h2>Total Cost: $<span id="totalCost">0.00</span></h2>
+
+    <script>
+        function calculateCost() {
+            const fileDataSize = parseFloat(document.getElementById('fileDataSize').value);
+            const mailboxCount = parseInt(document.getElementById('mailboxCount').value);
+            const fileDataCost = fileDataSize * 312;
+            const mailboxCost = mailboxCount * 3.10;
+            const totalCost = fileDataCost + mailboxCost;
+            document.getElementById('totalCost').textContent = totalCost.toFixed(2);
+        }
+    </script>
+</body>
+</html>
